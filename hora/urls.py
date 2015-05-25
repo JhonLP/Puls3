@@ -19,5 +19,9 @@ from app import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-   url(r'^$', 'app.views.home', name='home')
+    url(r'^$', 'app.views.home', name='home'),
+    url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
+    url(r'^minus/(\d+)$', 'app.views.minus', name='minus'),
+    url(r'^categoria/(\d+)$', 'app.views.categoria', name='categoria'),
+    url(r'^add/$', 'app.views.add', name='add')
 ]
