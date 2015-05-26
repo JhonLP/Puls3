@@ -10,6 +10,7 @@ def menu(request):
 	menu = {'menu':[
 	{'name':'Home', 'url':reverse('home')},
 	{'name':'Agregar', 'url':reverse('add')},
+	{'name':'Acerca de', 'url':reverse('about')},
 	]}
 	for item in menu['menu']:
 		if request.path == item ['url']:

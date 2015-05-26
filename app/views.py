@@ -12,6 +12,7 @@ from django.shortcuts import get_object_or_404
 from forms import *
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView
 
 def home(request):
 	categorias = Categoria.objects.all()
@@ -57,6 +58,17 @@ def add(request):
 
 	template = "form.html"
 	return render_to_response(template, context_instance = RequestContext(request,locals()))
+
+class EnlaceListView(ListView):
+	model = Enlace
+	context_object_name = 'enlaces'
+	def get_template_names(self):
+		return 'index.html'
+
+class EnlaceDetailView(DetailView):
+	model = Enlace
+	def get_template_names(self):
+		return 'index.html'
 
 def hora_actual(request):
 	now = datetime.now()
