@@ -16,3 +16,14 @@ class Enlace(models.Model):
 	timestamp =  models.DateTimeField(auto_now_add=True)
 	def __unicode__(self):
 		return ("%s - %s") % (self.titulo,self.enlace)
+
+	def mis_votos_en_imagen(self):
+		return 'http://placehold.it/150x100/E8117F/ffffff/&text=%d+votos' % self.votos
+
+	def es_popular(self):
+		return self.votos > 10
+	es_popular.boolean = True
+
+class Agregador(models.Model):
+	titulo = models.CharField(max_length=140)
+	enlaces = models.ManyToManyField(Enlace)
