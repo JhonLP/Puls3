@@ -25,7 +25,7 @@ SECRET_KEY = 'z8&@%tub!cbfmsp+vnetolttqshg6b3s(vioc+e)+hjbghxsjr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['']
 
 
 # Application definition
@@ -104,5 +104,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+#STATIC_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['static'])
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
+#crea e indica la ruta de los archivos staticos
+#con python manage.py collectstatic se recoletan todos los archivos staticos
+#hacia la ruta que acabamos de indicar
 
 STATIC_URL = '/static/'
