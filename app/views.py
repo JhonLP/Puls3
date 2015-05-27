@@ -13,6 +13,9 @@ from forms import *
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView
+from serializers import EnlaceSerializer, UserSerializer
+from rest_framework import viewsets
+from django.contrib.auth.models import User
 
 def home(request):
 	categorias = Categoria.objects.all()
@@ -69,6 +72,14 @@ class EnlaceDetailView(DetailView):
 	model = Enlace
 	def get_template_names(self):
 		return 'index.html'
+
+class EnlaceViewSet(viewsets.ModelViewSet):
+	queryset = Enlace.objects.all()
+	serializer_class = EnlaceSerializer
+
+class UserViewSet(viewsets.ModelViewSet):
+	queryset = User.objects.all()
+	serializer_class = UserSerializer
 
 def hora_actual(request):
 	now = datetime.now()

@@ -17,9 +17,16 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from app import views
 from django.views.generic import TemplateView
-from app.views import EnlaceListView, EnlaceDetailView
+from app.views import EnlaceListView, EnlaceDetailView, EnlaceViewSet, UserViewSet
+from rest_framework import routers
 
-urlpatterns = [
+router = routers.DefaultRouter()
+router.register(r'links',EnlaceViewSet)
+router.register(r'users',UserViewSet)
+
+urlpatterns = [    
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'app.views.home', name='home'),
     url(r'^plus/(\d+)$', 'app.views.plus', name='plus'),
@@ -30,4 +37,6 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name='index.html'), name='about'),
     url(r'^enlaces/$', EnlaceListView.as_view(), name='enlaces'),
     url(r'^detalles/(?P<pk>[\d]+)$', EnlaceDetailView.as_view(), name='detalles'),
+
+
 ]

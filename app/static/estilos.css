@@ -221,6 +221,7 @@ nav #publicar_nav a
 #contenido .item .imagen_item img
 {
 	width: 96px;
+	height: 96px;
 }
 #contenido .item .titulo_item
 {
