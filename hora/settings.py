@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'app',
     'rest_framework',
+    'mockups',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -87,6 +88,17 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'redis_cache.RedisCache',
+        'LOCATION': 'localhost:6379',
+        'OPTIONS': {
+            'DB':1,
+            #'PASSWORD': 'root'
+            'PARSER_CLASS':'redis.connection.HiredisParser'
+        }
+    }
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

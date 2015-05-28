@@ -16,10 +16,12 @@ from django.views.generic import ListView, DetailView
 from serializers import EnlaceSerializer, UserSerializer
 from rest_framework import viewsets
 from django.contrib.auth.models import User
+from django.views.decorators.cache import cache_page
 
+#@cache_page(6000)
 def home(request):
 	categorias = Categoria.objects.all()
-	enlaces = Enlace.objects.order_by("-votos").all()
+	enlaces = Enlace.objects.order_by("-votos").all()[:50] #limita a 50 resultados
 	template = "index.html"
 	return render(request,template,locals())
 	#locals() toma las variables definidas dentro de la funcion
