@@ -1,15 +1,15 @@
 from random import choice
 from django.core.urlresolvers import reverse
-from django.core.cache import cache
+#from django.core.cache import cache
 
-frases = ['frase 1','frase 2','frase 3']
+#frases = ['frase 1','frase 2','frase 3']
 
-def ejemplo(request):
-	frase = cache.get('frase_cool')
-	if frase is None:
-		frase = choice(frases)
-		cache.set('frase_cool',frase)
- 	return {'frase':frase}
+#def ejemplo(request):
+#	frase = cache.get('frase_cool')
+#	if frase is None:
+#		frase = choice(frases)
+#		cache.set('frase_cool',frase)
+# 	return {'frase':frase}
 
 def menu(request):
 	menu = {'menu':[

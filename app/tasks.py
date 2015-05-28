@@ -1,6 +1,6 @@
-from celery import task
+#from celery import task
 
-@task
+#@task
 def calculo():
 	j = 1
 	for i in xrange(50000):
