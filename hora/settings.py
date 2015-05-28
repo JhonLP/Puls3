@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z8&@%tub!cbfmsp+vnetolttqshg6b3s(vioc+e)+hjbghxsjr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['']
 
@@ -39,13 +39,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'djcelery',
+    #'djcelery',
     'rest_framework',
-    'mockups',
+    #'mockups',
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
+    #'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,10 +55,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'app.middleware.PaisMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
+#CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 
 ROOT_URLCONF = 'hora.urls'
 
@@ -82,7 +82,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hora.wsgi.application'
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+#SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -94,22 +94,22 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost:6379',
-        'OPTIONS': {
-            'DB':1,
-            #'PASSWORD': 'root'
-            'PARSER_CLASS':'redis.connection.HiredisParser'
-        }
-    }
-}
+#CACHES = {
+#    'default': {
+#        'BACKEND': 'redis_cache.RedisCache',
+#        'LOCATION': 'localhost:6379',
+#        'OPTIONS': {
+#            'DB':1,
+#            #'PASSWORD': 'root'
+#            'PARSER_CLASS':'redis.connection.HiredisParser'
+#        }
+#    }
+#}
 
-import djcelery
-djcelery.setup_loader()
+#import djcelery
+#djcelery.setup_loader()
 
-BROKER_URL = 'redis://localhost:6379/0' #cola de mensajes
+#BROKER_URL = 'redis://localhost:6379/0' #cola de mensajes
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
