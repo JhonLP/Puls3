@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'djcelery',
     'rest_framework',
     'mockups',
 )
@@ -104,6 +105,11 @@ CACHES = {
         }
     }
 }
+
+import djcelery
+djcelery.setup_loader()
+
+BROKER_URL = 'redis://localhost:6379/0' #cola de mensajes
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

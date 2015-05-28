@@ -8,7 +8,7 @@ def ejemplo(request):
 	frase = cache.get('frase_cool')
 	if frase is None:
 		frase = choice(frases)
-		cache.set('frase_cool')
+		cache.set('frase_cool',frase)
  	return {'frase':frase}
 
 def menu(request):
