@@ -14,6 +14,8 @@ class Enlace(models.Model):
 	cat = models.ForeignKey(Categoria)
 	usuario = models.ForeignKey(User)
 	timestamp =  models.DateTimeField(auto_now_add=True)
+	imagen = models.ImageField(upload_to='enlaces/', blank=True, null=True)
+
 	def __unicode__(self):
 		return ("%s - %s") % (self.titulo,self.enlace)
 

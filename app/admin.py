@@ -3,7 +3,7 @@ from models import Enlace,Categoria,Agregador
 from actions import export_as_csv
 
 class EnlaceAdmin(admin.ModelAdmin):
-	list_display = ('titulo','enlace','cat','imagen_voto','es_popular')
+	list_display = ('titulo','enlace','cat','imagen_voto','es_popular','imagen',)
 	list_filter = ('cat','usuario')
 	search_fields = ('cat__titulo','usuario__email')
 	list_editable = ('titulo','enlace','cat')

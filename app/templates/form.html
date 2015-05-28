@@ -26,7 +26,7 @@
 	</header>
 	{% include 'menu.html' %}
 	<section id="contenido">
-	    <form method="post">
+	    <form method="post" enctype= "multipart/form-data">
 	    <div id="form">
 	        {% csrf_token %}
 		    {{form.as_p}}
